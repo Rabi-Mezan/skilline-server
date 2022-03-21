@@ -1,10 +1,10 @@
-var express = require('express');
-var app = express();
-const port = process.env.PORT || 5000
-const cors = require('cors');
+const express = require('express')
+const app = express()
+const cors = require('cors')
 require('dotenv').config()
 const { MongoClient } = require('mongodb');
-const ObjectId = require('mongodb').ObjectId
+const port = process.env.PORT || 5000;
+
 
 
 app.use(cors())
@@ -31,7 +31,7 @@ async function run() {
             const result = await newsCollection.find({}).toArray()
             res.send(result)
         })
-        // get api for recommended testimonials
+        // get api for  testimonials
         app.get('/testimonials', async (req, res) => {
             const result = await testimonialsCollection.find({}).toArray()
             res.send(result)
